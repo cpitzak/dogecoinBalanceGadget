@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gadget>
+  <name>DogeBalance</name>
+  <version>0.0.0.1</version>
+  <author name="Microsoft">
+    <info url="msdn.microsoft.com" />
+  </author>
+  <description>Dogecoin Balance monitors your dogecoins and current market price from the addresses in addresses.csv.</description>
+  <hosts>
+    <host name="sidebar">
+      <base type="HTML" apiVersion="1.0.0" src="DogeBalance.html" />
+      <permissions>Full</permissions>
+      <platform minPlatformVersion="1.0" />
+    </host>
+  </hosts>
+</gadget>

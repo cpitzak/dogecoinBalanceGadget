@@ -1,0 +1,114 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=Unicode" />
+        <title>Hello World</title>
+        <style type="text/css">
+        body
+        {
+            margin: 0;
+            width: 130px;
+            height: 129px;
+            font-family: verdana;
+            font-weight: bold;
+            font-size: 10px;
+        }
+        #dogecoins
+        {
+            margin-top: 20px;
+            width: 130px;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+        }
+		#usd
+        {
+            margin-bottom: 20px;
+            width: 130px;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+        }
+        </style>
+        <script type="text/jscript" language="jscript">
+            // Initialize the gadget.
+            function init()
+            {
+                var oBackground = document.getElementById("imgBackground");
+                oBackground.src = "url(images/dogecoin.jpg)";
+            }
+        </script>
+		<script type="text/javascript">
+			var dogecoins = {};
+			function restGet(url, value, callback) {
+				var xmlhttp;
+
+				if (window.XMLHttpRequest) {
+					// code for IE7+, Firefox, Chrome, Opera, Safari
+					xmlhttp = new XMLHttpRequest();
+				} else {
+					// code for IE6, IE5
+					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						var result = xmlhttp.responseText;
+						callback.apply(this, [value, result]);
+					}
+				}
+
+				xmlhttp.open("GET", url, true);
+				xmlhttp.send();
+			}
+			
+			function updateTotHtml(doge_address, returned_coins) {
+				var total_coins = 0;
+				dogecoins[doge_address] = parseFloat(returned_coins);
+				
+				for(var key in dogecoins) {
+					if (dogecoins.hasOwnProperty(key)) {
+						total_coins += dogecoins[key];
+					}
+				}
+				document.getElementById("dogecoins").innerHTML = total_coins;
+				restGet("http://coinmarketcap.northpole.ro/api/doge.json", total_coins, updateUsdPrice);
+			}
+			
+			function updateUsdPrice(total_coins, json_string) {
+				var json = eval('(' + json_string + ')');
+				var price = parseFloat(json.price.replace("$","").replace(" ",""));
+				var total_usd = total_coins * price;
+				document.getElementById("usd").innerHTML = "$" + total_usd.toFixed(2);
+			}
+			
+			function getTotals() {
+				var ForReading = 1, ForWriting = 2, ForAppending = 8;
+				var oFSO  = new ActiveXObject("Scripting.FileSystemObject");
+				var oFile = oFSO.OpenTextFile(System.Gadget.path+"\\addresses.csv", ForReading, true);
+				var csv = oFile.ReadAll();
+				var addresses = csv.split(",");
+				var i;
+				oFile.close();
+				
+				for(i = 0; i < addresses.length; i++) {
+					(function(cntr) {
+						document.getElementById("dogecoins").innerHTML = restGet("http://dogechain.info/chain/Dogecoin/q/addressbalance/"
+						+ addresses[cntr], addresses[cntr], updateTotHtml);
+					})(i);
+				}
+			}
+			</script>
+    </head>
+	
+    <body onload="init()">
+        <g:background id="imgBackground">
+		<script type="text/javascript">
+		setInterval(function(){
+			getTotals();
+		}, 5000);
+		</script>
+            <span id="dogecoins"></span>
+			<span id="usd"></span>
+        </g:background>
+    </body>
+</html>
