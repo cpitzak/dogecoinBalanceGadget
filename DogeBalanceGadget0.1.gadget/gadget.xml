@@ -2,15 +2,20 @@
 <gadget>
   <name>DogeBalance</name>
   <version>0.0.0.1</version>
-  <author name="Microsoft">
-    <info url="msdn.microsoft.com" />
+  <author name="Clint">
+    <info url="https://github.com/cpitzak/dogecoinBalanceGadget" />
   </author>
-  <description>Dogecoin Balance monitors your dogecoins and current market price from the addresses in addresses.csv.</description>
+  <copyright>&#169; Microsoft Corporation.</copyright>
+    <description>Dogecoin Balance monitors your dogecoins and current market price from the addresses in addresses.csv.</description>
+    <icons>
+	<icon height="47" width="48" src="images/icon.png"/>
+    </icons>
   <hosts>
     <host name="sidebar">
       <base type="HTML" apiVersion="1.0.0" src="DogeBalance.html" />
       <permissions>Full</permissions>
       <platform minPlatformVersion="1.0" />
+	  <defaultImage src="images/icon.png" />
     </host>
   </hosts>
 </gadget>
