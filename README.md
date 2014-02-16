@@ -7,9 +7,6 @@ Then install the gadget and every 5 seconds the total amount of dogecoins you ha
 
 ![ScreenShot](https://raw2.github.com/cpitzak/dogecoinBalanceGadget/master/screenshot/gadget.png)
 
-## Version
-0.0.0.1
-
 ## Install
 Decide if you want to install the gadget for only your profile or for all users profiles. Here is how:
 
