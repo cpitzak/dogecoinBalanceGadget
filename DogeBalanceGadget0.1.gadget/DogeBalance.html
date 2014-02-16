@@ -78,7 +78,7 @@
 						total_coins += dogecoins[key];
 					}
 				}
-				document.getElementById("dogecoins").innerHTML = total_coins;
+				document.getElementById("dogecoins").innerHTML = total_coins.toFixed(4);
 				restGet("http://coinmarketcap.northpole.ro/api/doge.json", total_coins, updateUsdPrice);
 			}
 			
