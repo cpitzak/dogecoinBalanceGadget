@@ -28,6 +28,14 @@
             text-align: center;
             overflow: hidden;
         }
+		#price
+        {
+            margin-bottom: 40px;
+            width: 130px;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+        }
         </style>
         <script type="text/jscript" language="jscript">
             // Initialize the gadget.
@@ -79,6 +87,7 @@
 				var price = parseFloat(json.price.replace("$","").replace(" ",""));
 				var total_usd = total_coins * price;
 				document.getElementById("usd").innerHTML = "$" + total_usd.toFixed(2);
+				document.getElementById("price").innerHTML = json.price;
 			}
 			
 			function getTotals() {
@@ -103,6 +112,7 @@
         <g:background id="imgBackground">
             <span id="dogecoins"></span>
 			<span id="usd"></span>
+			<span id="price"></span>
         </g:background>
 		<script type="text/javascript">
 			getTotals();
