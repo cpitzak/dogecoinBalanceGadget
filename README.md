@@ -12,6 +12,7 @@ Then install the gadget and every 5 seconds the total amount of dogecoins you ha
 
 ## Install
 Decide if you want to install the gadget for only your profile or for all users profiles. Here is how:
-
-For your profile: Copy folder to: %USERPROFILE%\AppData\Local\Microsoft\Windows Sidebar\Gadgets
-For all users profiles: Copy folder to: %SYSTEM_ROOT%\Program Files\Windows Sidebar\Gadgets
+- Edit addresses.csv and replace the example addresses in there with your addresses or address. Note the example addresses are not my addresses, there random addresses I found on dogechain.info
+- Copy the folder DogeBalanceGadget0.1.gadget one of the following locations:
+   * For your profile: Copy folder to: %USERPROFILE%\AppData\Local\Microsoft\Windows Sidebar\Gadgets
+   * For all users profiles: Copy folder to: %SYSTEM_ROOT%\Program Files\Windows Sidebar\Gadgets
