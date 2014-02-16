@@ -41,7 +41,7 @@
 			var dogecoins = {};
 			function restGet(url, value, callback) {
 				var xmlhttp;
-
+				var result
 				if (window.XMLHttpRequest) {
 					// code for IE7+, Firefox, Chrome, Opera, Safari
 					xmlhttp = new XMLHttpRequest();
@@ -52,7 +52,7 @@
 
 				xmlhttp.onreadystatechange = function() {
 					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-						var result = xmlhttp.responseText;
+						result = xmlhttp.responseText;
 						callback.apply(this, [value, result]);
 					}
 				}
@@ -92,8 +92,7 @@
 				
 				for(i = 0; i < addresses.length; i++) {
 					(function(cntr) {
-						document.getElementById("dogecoins").innerHTML = restGet("http://dogechain.info/chain/Dogecoin/q/addressbalance/"
-						+ addresses[cntr], addresses[cntr], updateTotHtml);
+						restGet("http://dogechain.info/chain/Dogecoin/q/addressbalance/" + addresses[cntr], addresses[cntr], updateTotHtml);
 					})(i);
 				}
 			}
@@ -102,13 +101,14 @@
 	
     <body onload="init()">
         <g:background id="imgBackground">
-		<script type="text/javascript">
-		setInterval(function(){
-			getTotals();
-		}, 5000);
-		</script>
             <span id="dogecoins"></span>
 			<span id="usd"></span>
         </g:background>
+		<script type="text/javascript">
+			getTotals();
+			setInterval(function(){
+				getTotals();
+			}, 5000);
+		</script>
     </body>
 </html>
