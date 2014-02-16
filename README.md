@@ -18,4 +18,5 @@ Decide if you want to install the gadget for only your profile or for all users 
    * For your profile: Copy folder to: %USERPROFILE%\AppData\Local\Microsoft\Windows Sidebar\Gadgets
    * For all users profiles: Copy folder to: %SYSTEM_ROOT%\Program Files\Windows Sidebar\Gadgets
 
+## Donate
 DOGE: DCoev8SmghTN2CoQmo4JWefsK9HUw37KDY
