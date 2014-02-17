@@ -14,6 +14,8 @@ Decide if you want to install the gadget for only your profile or for all users 
 - Copy the folder DogeBalanceGadget0.1.gadget one of the following locations:
    * For your profile: Copy folder to: %USERPROFILE%\AppData\Local\Microsoft\Windows Sidebar\Gadgets
    * For all users profiles: Copy folder to: %SYSTEM_ROOT%\Program Files\Windows Sidebar\Gadgets
+- Right click on the desktop and select Gadgets
+- Double click the DogeBalance gadget. If you don't see it search in that box for DogeBalance
 
 ## Donate
 DOGE: DCoev8SmghTN2CoQmo4JWefsK9HUw37KDY
